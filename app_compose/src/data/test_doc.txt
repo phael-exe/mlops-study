@@ -1,0 +1,7 @@
+# data/documentos.txt
+Docker é uma plataforma aberta para desenvolver, enviar e executar aplicações em contêineres.
+Um contêiner é uma unidade padrão de software que empacota código e todas as suas dependências.
+Docker Compose é uma ferramenta para definir e executar aplicações Docker multi-contêiner.
+Com o Compose, você usa um arquivo YAML para configurar os serviços da sua aplicação.
+Qdrant é um banco de dados vetorial usado para busca de similaridade em alta velocidade.
+Streamlit é um framework em Python para criar interfaces web para aplicações de dados e IA.

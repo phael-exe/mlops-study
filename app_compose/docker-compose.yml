@@ -1,0 +1,26 @@
+services:
+  # O nome do serviço da sua API (pode ser 'api', 'backend', etc.)
+  api:
+    build:
+      context: .
+      dockerfile: ./src/api/Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src/api:/app
+      - ./src/data:/app/data
+    depends_on:
+      - qdrant
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  qdrant_data:

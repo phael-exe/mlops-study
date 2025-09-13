@@ -1,4 +1,5 @@
 fastapi
 pydantic
-uvicorn
-pytest
+qdrant-client
+sentence-transformers
+uvicorn[standard]
