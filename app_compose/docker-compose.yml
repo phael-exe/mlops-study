@@ -1,7 +1,9 @@
 services:
   frontend:
-    build: ./front
-    container_name: streamlit_frontend
+    build: 
+      context: ./front
+      dockerfile: Dockerfile
+    # container_name: streamlit_frontend
     env_file:
       - ./.env
     ports:
@@ -10,10 +12,19 @@ services:
       - api
     networks:
       - app-network
+    develop:
+      watch:
+          - action: sync
+            path: ./front
+            target: /app
+            ignore:
+              - __pycache__/
+              - .git/
+          - action: rebuild
+            path: ./front/requirements.txt
 
   api:
     build: ./api
-    container_name: fastapi_api
     env_file:
       - ./.env
     ports:
@@ -22,10 +33,19 @@ services:
       - redis
     networks:
       - app-network
+    develop:
+      watch: 
+          - action: sync
+            path: ./api
+            target: /code
+            ignore:
+              - __pycache__/
+              - .git/
+          - action: rebuild
+            path: .api/requirements.txt
 
   redis:
     image: "redis:alpine"
-    container_name: redis_db
     volumes:
       - redis_data:/data
     networks:
