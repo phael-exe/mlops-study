@@ -19,7 +19,7 @@ db.setnx('hits', 0)
 
 @app.get("/")
 def boas_vindas():
-    return {"mensagem": "Aplicação está rodando 🚀"}
+    return {"mensagem": "Aplicaçdehhuide está rodando 🚀"}
 
 @app.get("/visits")
 def visits_count():

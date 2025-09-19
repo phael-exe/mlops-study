@@ -17,7 +17,7 @@ def get_visits_count():
     except requests.exceptions.RequestException:
         return "API Offline"
 
-st.title("Contador de Visitas com Docker! 🐳")
+st.title("Contador de Mlops com Docker! 🐳")
 st.markdown("---")
 st.header("Contador em Tempo Real")
 
